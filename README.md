@@ -1,2 +1,2 @@
 # backend_account
-Example of backend for account using SpringBoot
+Backend for had¡ndle both billing and spots for a parking site, developed in Django and Python
