@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app_factura.views import PlazaCreateView, PlazaDetailView, PlazaUpdateView, PlazaDeleteView
+from app_factura.views import PlazaCreateView, PlazaDetailView, PlazaUpdateView, PlazaDeleteView, AvailablePlazas
 from app_factura.views import FacturaCreateView, FacturaDetailView, FacturaUpdateView, FacturaDeleteView, CheckOutView 
 
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('plaza/<int:pk>/',        PlazaDetailView.as_view()),
     path('plaza/update/<int:pk>/', PlazaUpdateView.as_view()),
     path('plaza/delete/<int:pk>/', PlazaDeleteView.as_view()),
+    path('plaza/available/',       AvailablePlazas.as_view()),
 
     path('factura/create/',          FacturaCreateView.as_view()),
     path('factura/<int:pk>/',        FacturaDetailView.as_view()),

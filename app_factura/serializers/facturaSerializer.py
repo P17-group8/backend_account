@@ -20,6 +20,5 @@ class FacturaSerializer(serializers.ModelSerializer):
             'plaza':{
                 'id': plaza.id,
                 'isAvailable': plaza.isAvailable,
-                'tipo': plaza.tipo
             }
         }

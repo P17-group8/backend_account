@@ -9,5 +9,5 @@ class Factura(models.Model):
     fecha_entrada = models.DateTimeField(auto_now_add=True)
     fecha_salida  = models.DateTimeField(null=True)
     costo         = models.IntegerField(default=0)
-    plaza         = models.OneToOneField(Plaza, on_delete=PROTECT, null=False)
+    plaza         = models.ForeignKey(Plaza, on_delete=PROTECT, null=False)
     

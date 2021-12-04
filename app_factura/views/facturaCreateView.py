@@ -1,3 +1,4 @@
+from django.core import exceptions
 from rest_framework                                 import status, views
 from rest_framework.response                        import Response
 from app_factura.serializers                        import FacturaSerializer
@@ -9,8 +10,13 @@ class FacturaCreateView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
-        #Diciendo que la plaza está ocupada
         plaza = Plaza.objects.get(id=request.data['plaza'])
+        
+        #Validando que la plaza no esté ocupada
+        if plaza.isAvailable == False:
+            raise exceptions.FieldError
+
+        #Diciendo que la plaza está ocupada
         plaza.isAvailable = False
         plaza.save()
 

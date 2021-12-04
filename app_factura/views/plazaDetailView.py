@@ -1,3 +1,4 @@
+from django.db.models import query
 from rest_framework                                 import generics#, status
 from app_factura.models                             import Plaza
 from app_factura.serializers.plazaSerializer        import PlazaSerializer
@@ -9,6 +10,11 @@ class PlazaDetailView(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
+class AvailablePlazas(generics.ListAPIView):
+    queryset = Plaza.objects.filter(isAvailable=True)
+    serializer_class   = PlazaSerializer
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
 
 class PlazaUpdateView(generics.UpdateAPIView):
     queryset           = Plaza.objects.all()
