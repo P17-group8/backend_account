@@ -39,8 +39,8 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('admin/#/', admin.site.urls),    
+    path('admin/',                 admin.site.urls),
+    path('admin/#/',               admin.site.urls),    
     path('plaza/create/',          PlazaCreateView.as_view()),
     path('plaza/<int:pk>/',        PlazaDetailView.as_view()),
     path('plaza/update/<int:pk>/', PlazaUpdateView.as_view()),
